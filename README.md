@@ -1,3 +1,2 @@
-Successfully implement react-leaflet-heatmap-layer
-
-![A screenshot of a heatmap on a leaflet map](./thumbnail.png)
+Implemented tasks:
+1. Sending Post request to backend
