@@ -20,7 +20,7 @@ const position = [14.07216624, 100.60579777];
 const bus2 = get(busline, ['line', '2', 'loc']).map(loc => [loc.latitude, loc.longitude]);
 
 function BusMarker({ idx, marker }) {
-  const busMapping = require('./assets/busMapping.json')
+  const busMapping = require('./assets/busLineMatching.json')
   const busIconNumber = get(busMapping, marker.carno);
 
   const icon = L.icon({
