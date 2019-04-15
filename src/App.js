@@ -20,8 +20,11 @@ const position = [14.07216624, 100.60579777];
 const bus2 = get(busline, ['line', '2', 'loc']).map(loc => [loc.latitude, loc.longitude]);
 
 function BusMarker({ idx, marker }) {
+  const busMapping = require('./assets/busMapping.json')
+  const busIconNumber = get(busMapping, marker.carno);
+
   const icon = L.icon({
-    iconUrl: require(`./assets/icon/${marker.icn}`),
+    iconUrl: require(`./assets/icon/bus-line-${busIconNumber}.png`),
     popupAnchor: [10, -44],
     iconSize: [25, 28],
     shadowUrl: './assets/marker-shadow.png',
@@ -40,7 +43,7 @@ function BusMarker({ idx, marker }) {
 
 function App() {
   const [userLocation, setUserLocation] = useState(position);
-  const [busIds, setBusIds] = useState(["228LE2018000993"]);
+  const [busIds, setBusIds] = useState([]);
   const [markers, setMarkers] = useState([
     {
       id: "228LE2018000993",
@@ -65,7 +68,7 @@ function App() {
       acctime: "2019-04-09T10:27:52.000Z",
       speed: 13.895999999999999,
       direction: 358,
-      carno: "0TU0019",
+      carno: "0TU0017",
       icn: "bus_line2.png",
       carstatus: "online",
       company: "THAMMASAT",
@@ -75,30 +78,31 @@ function App() {
   ]);
 
   useEffect(() => {
-    let item = {
-      id: "228LE2018000993",
-      lat: 14.07023055,
-      lon: 100.61050773,
-      timestamp: "2019-04-09T10:31:11.000Z",
-      acctime: "2019-04-09T10:27:52.000Z",
-      speed: 13.895999999999999,
-      direction: 358,
-      carno: "0TU0017",
-      icn: "bus_line2.png",
-      carstatus: "online",
-      company: "THAMMASAT",
-      driver: "Mr Aod Amornpak",
-      satellite: 11
-    };
+    // let item = {
+    //   id: "228LE2018000993",
+    //   lat: 14.07023055,
+    //   lon: 100.61050773,
+    //   timestamp: "2019-04-09T10:31:11.000Z",
+    //   acctime: "2019-04-09T10:27:52.000Z",
+    //   speed: 13.895999999999999,
+    //   direction: 358,
+    //   carno: "0TU0017",
+    //   icn: "bus_line2.png",
+    //   carstatus: "online",
+    //   company: "THAMMASAT",
+    //   driver: "Mr Aod Amornpak",
+    //   satellite: 11
+    // };
 
-    let busIndex = busIds.indexOf(item.id);
-    if (busIndex === -1) {
-    } else {
-      const newMarkers = [...markers];
-      newMarkers.splice(busIndex, 1); //Delete
-      newMarkers.splice(busIndex, 0, item); //Insert
-      setMarkers(newMarkers)
-    }
+    // let busIndex = busIds.indexOf(item.id);
+    // if (busIndex === -1)
+    //   setMarkers([item])
+    // else {
+    //   const newMarkers = [...markers];
+    //   newMarkers.splice(busIndex, 1); //Delete
+    //   newMarkers.splice(busIndex, 0, item); //Insert
+    //   setMarkers(newMarkers)
+    // }
   }, [])
 
   return (
