@@ -41,11 +41,36 @@ function BusRoute() {
     return (
         <div>
             <Control position="bottomleft" >
-                <button class="button" style={lines.indexOf('1A') !== -1 ? {background: "#FF8C00"} : null} onClick={() => selectBus('1A')}>1A</button>
-                <button class="button" style={lines.indexOf('1B') !== -1 ? {background: "#ffcc33"} : null} onClick={() => selectBus('1B')}>1B</button>
-                <button class="button" style={lines.indexOf('2') !== -1 ? {background: "#20B2AA"} : null} onClick={() => selectBus('2')}> 2</button>
-                <button class="button" style={lines.indexOf('3') !== -1 ? {background: "#ff0000"} : null} onClick={() => selectBus('3')}> 3</button>
-                <button class="button" style={lines.indexOf('4') !== -1 ? {background: "#D02090"} : null} onClick={() => selectBus('4')}> 4</button>
+                <button
+                    class="button btn-line-1A"
+                    style={lines.indexOf('1A') !== -1 ? { background: "#FF8C00", color: "white" } : null}
+                    onClick={() => selectBus('1A')}>
+                    1A
+                </button>
+                <button
+                    class="button btn-line-1B"
+                    style={lines.indexOf('1B') !== -1 ? { background: "#ffcc33", color: "white" } : null}
+                    onClick={() => selectBus('1B')}>
+                    1B
+                </button>
+                <button
+                    class="button btn-line-2"
+                    style={lines.indexOf('2') !== -1 ? { background: "#20B2AA", color: "white" } : null}
+                    onClick={() => selectBus('2')}>
+                    2
+                   </button>
+                <button
+                    class="button btn-line-3"
+                    style={lines.indexOf('3') !== -1 ? { background: "#ff0000", color: "white" } : null}
+                    onClick={() => selectBus('3')}>
+                    3
+                 </button>
+                <button
+                    class="button btn-line-4"
+                    style={lines.indexOf('4') !== -1 ? { background: "#D02090", color: "white" } : null}
+                    onClick={() => selectBus('4')}>
+                    4
+                  </button>
             </Control>
             {routes.map((route, index) =>
                 <Polyline key={index} positions={route.path} color={route.color} weight={5} />

@@ -11,3 +11,33 @@
     cursor: pointer;
     border-radius: 50%;
 }
+
+.btn-line-1A {
+    border: 2px solid #FF8C00;
+    color: black;
+    background-color: white;
+}
+
+.btn-line-1B {
+    border: 2px solid #ffcc33;
+    color: black;
+    background-color: white;
+}
+
+.btn-line-2 {
+    border: 2px solid #20B2AA;
+    color: black;
+    background-color: white;
+}
+
+.btn-line-3 {
+    border: 2px solid #ff0000;
+    color: black;
+    background-color: white;
+}
+
+.btn-line-4 {
+    border: 2px solid #D02090;
+    color: black;
+    background-color: white;
+}
