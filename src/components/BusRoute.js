@@ -10,13 +10,6 @@ function BusRoute() {
     const [routeColor, setRouteColor] = useState('#5DBCD2');
 
     const selectBus = line => {
-        // switch (line) {
-        //     case '2':
-        //         setBusRoute(get(busline, ['line', '2', 'loc']).map(loc => [loc.latitude, loc.longitude]));
-        //         break;
-        //     default:
-        //         console.log('Default case');
-        // }
         setRoute(get(busline, ['line', line, 'loc']).map(loc => [loc.latitude, loc.longitude]));
         setRouteColor(get(busline, ['line', line, 'color']));
     }
