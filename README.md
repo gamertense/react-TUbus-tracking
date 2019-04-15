@@ -1,2 +1,6 @@
 Implemented tasks:
-1. Sending Post request to backend
+- Bus route toggle buttons
+- Update a particular bus location on map
+
+Future work:
+- Waiting for Socket.io connection
