@@ -3,7 +3,7 @@
     "line": {
         "2": {
             "active": true,
-            "color": "#D02090",
+            "color": "#20B2AA",
             "loc": [
                 {
                     "latitude": 14.07473,
@@ -302,7 +302,7 @@
         },
         "3": {
             "active": true,
-            "color": "#FF8C00",
+            "color": "#ff0000",
             "loc": [
                 {
                     "latitude": 14.065970000000002,
@@ -479,7 +479,7 @@
         },
         "4": {
             "active": true,
-            "color": "#2E8B57",
+            "color": "#D02090",
             "loc": [
                 {
                     "latitude": 14.068500000000002,
@@ -659,7 +659,7 @@
         },
         "1A": {
             "active": true,
-            "color": "#ffcc33",
+            "color": "#FF8C00",
             "loc": [
                 {
                     "latitude": 14.067400000000001,
@@ -1127,7 +1127,7 @@
         },
         "1B": {
             "active": true,
-            "color": "#20B2AA",
+            "color": "#ffcc33",
             "loc": [
                 {
                     "latitude": 14.067400000000001,

@@ -7860,6 +7860,11 @@ react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.2.tgz#09891d324cad1cb0c1f2d91f70a71a4bee34df0f"
   integrity sha512-D+NxhSR2HUCjYky1q1DwpNUD44cDpUXzSmmFyC3ug1bClcU/iDNy0YNn1iwme28fn+NFhpA13IndOd42CrFb+Q==
 
+react-leaflet-control@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-leaflet-control/-/react-leaflet-control-2.1.1.tgz#ed90006c9d285872a2788fe15c11fc30ad14cdb0"
+  integrity sha512-3fx4uSRFtDaFNa1yq62DCxdc9kR3Lk4V7R0lHqbKfPTEIOvPR7VFvk3xzcSnSB/0LAYO8R96Pwcs1c6knyL/Hw==
+
 react-leaflet@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-2.2.1.tgz#c33974f518ffc8b3b7221f72e00c28963b95314d"
