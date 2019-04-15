@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { get } from 'lodash'
-import moment from "moment";
 
 import './App.css';
 
@@ -49,8 +48,8 @@ function App() {
   const [markers, setMarkers] = useState([
     {
       id: "228LE2018000993",
-      lat: 14.0695,
-      lon: 100.60423,
+      lat: 14.07207258,
+      lon: 100.60260594,
       timestamp: "2019-04-09T10:31:11.000Z",
       acctime: "2019-04-09T10:27:52.000Z",
       speed: 13.895999999999999,
@@ -64,8 +63,8 @@ function App() {
     },
     {
       id: "228LE2018000777",
-      lat: 14.07056358,
-      lon: 100.60161352,
+      lat: 14.07410191,
+      lon: 100.61601698,
       timestamp: "2019-04-09T10:31:11.000Z",
       acctime: "2019-04-09T10:27:52.000Z",
       speed: 13.895999999999999,
