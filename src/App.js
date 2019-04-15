@@ -7,7 +7,7 @@ import './App.css';
 import { Map, Marker, Tooltip, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css'
-import ControlBtn from './components/BusRoute'
+import ControlBtn from './components/BusRoute/BusRoute'
 
 //Socket.io
 import io from 'socket.io-client';
@@ -81,13 +81,13 @@ function App() {
   useEffect(() => {
     let item = {
       id: "228LE2018000993",
-      lat: 14.07023055,
-      lon: 100.61050773,
+      lat: 14.07024096,
+      lon: 100.60217142,
       timestamp: "2019-04-09T10:31:11.000Z",
       acctime: "2019-04-09T10:27:52.000Z",
       speed: 13.895999999999999,
       direction: 358,
-      carno: "0TU0017",
+      carno: "0TU0003",
       icn: "bus_line2.png",
       carstatus: "online",
       company: "THAMMASAT",

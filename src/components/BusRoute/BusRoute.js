@@ -3,7 +3,9 @@ import { get } from 'lodash'
 import Control from 'react-leaflet-control';
 import { Polyline } from 'react-leaflet'
 
-const busline = require('../assets/bus.json');
+import './BusRoute.css';
+
+const busline = require('../../assets/bus.json');
 
 const allRoutes = [
     { path: get(busline, ['line', '1A', 'loc']).map(loc => [loc.latitude, loc.longitude]), color: get(busline, ['line', '1A', 'color']) },
@@ -39,11 +41,11 @@ function BusRoute() {
     return (
         <div>
             <Control position="bottomleft" >
-                <button onClick={() => selectBus('1A')}>1A</button>
-                <button onClick={() => selectBus('1B')}>1B</button>
-                <button onClick={() => selectBus('2')}>2</button>
-                <button onClick={() => selectBus('3')}>3</button>
-                <button onClick={() => selectBus('4')}>4</button>
+                <button class="button" style={lines.indexOf('1A') !== -1 ? {background: "#FF8C00"} : null} onClick={() => selectBus('1A')}>1A</button>
+                <button class="button" style={lines.indexOf('1B') !== -1 ? {background: "#ffcc33"} : null} onClick={() => selectBus('1B')}>1B</button>
+                <button class="button" style={lines.indexOf('2') !== -1 ? {background: "#20B2AA"} : null} onClick={() => selectBus('2')}> 2</button>
+                <button class="button" style={lines.indexOf('3') !== -1 ? {background: "#ff0000"} : null} onClick={() => selectBus('3')}> 3</button>
+                <button class="button" style={lines.indexOf('4') !== -1 ? {background: "#D02090"} : null} onClick={() => selectBus('4')}> 4</button>
             </Control>
             {routes.map((route, index) =>
                 <Polyline key={index} positions={route.path} color={route.color} weight={5} />
