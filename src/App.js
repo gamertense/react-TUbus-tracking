@@ -11,8 +11,6 @@ import ControlBtn from './components/BusRoute/BusRoute'
 
 //Socket.io
 import io from 'socket.io-client';
-const socket = io('https://service.mappico.co.th');
-socket.emit('room', 'THAMMASAT');
 
 //Set image path for Leaflet
 L.Icon.Default.imagePath =
@@ -43,68 +41,30 @@ function BusMarker({ idx, marker }) {
 }
 
 function App() {
-  const [userLocation, setUserLocation] = useState(position);
-  const [busIds, setBusIds] = useState(["228LE2018000993"]);
-  const [markers, setMarkers] = useState([
-    {
-      id: "228LE2018000993",
-      lat: 14.07207258,
-      lon: 100.60260594,
-      timestamp: "2019-04-09T10:31:11.000Z",
-      acctime: "2019-04-09T10:27:52.000Z",
-      speed: 13.895999999999999,
-      direction: 358,
-      carno: "0TU0019",
-      icn: "bus_line2.png",
-      carstatus: "online",
-      company: "THAMMASAT",
-      driver: "Mr Aod Amornpak",
-      satellite: 11
-    },
-    {
-      id: "228LE2018000777",
-      lat: 14.07410191,
-      lon: 100.61601698,
-      timestamp: "2019-04-09T10:31:11.000Z",
-      acctime: "2019-04-09T10:27:52.000Z",
-      speed: 13.895999999999999,
-      direction: 358,
-      carno: "0TU0017",
-      icn: "bus_line2.png",
-      carstatus: "online",
-      company: "THAMMASAT",
-      driver: "Mr Aod Amornpak",
-      satellite: 11
-    }
-  ]);
+  const [userLocation] = useState(position);
+  const [busIds, setBusIds] = useState([]);
+  const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
-    let item = {
-      id: "228LE2018000993",
-      lat: 14.07024096,
-      lon: 100.60217142,
-      timestamp: "2019-04-09T10:31:11.000Z",
-      acctime: "2019-04-09T10:27:52.000Z",
-      speed: 13.895999999999999,
-      direction: 358,
-      carno: "0TU0003",
-      icn: "bus_line2.png",
-      carstatus: "online",
-      company: "THAMMASAT",
-      driver: "Mr Aod Amornpak",
-      satellite: 11
-    };
-
-    let busIndex = busIds.indexOf(item.id);
-    if (busIndex === -1)
-      setMarkers([item])
-    else {
-      const newMarkers = [...markers];
-      newMarkers.splice(busIndex, 1); //Delete
-      newMarkers.splice(busIndex, 0, item); //Insert
-      setMarkers(newMarkers)
-    }
-  }, [])
+    const socket = io('https://service.mappico.co.th');
+    socket.emit('room', 'THAMMASAT');
+    socket.on('TU-NGV', data => {
+      // console.log(data)
+      let busIndex = busIds.indexOf(data.id);
+      if (busIndex === -1) {
+        setMarkers([...markers, data]);
+        setBusIds([...busIds, data.id]);
+      }
+      else if (markers[busIndex].lat !== data.lat && markers[busIndex].lon !== data.lon) {
+        let newMarkers = [...markers];
+        newMarkers.splice(busIndex, 1); //Delete
+        newMarkers.splice(busIndex, 0, data); //Insert
+        setMarkers(newMarkers)
+      }
+    });
+    return () => socket.close();
+  }, [busIds, markers])
+  // console.log(busIds);
 
   return (
     <div>
