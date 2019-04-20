@@ -73,7 +73,7 @@ function BusRoute() {
                   </button>
             </Control>
             {routes.map((route, index) =>
-                <Polyline key={index} positions={route.path} color={route.color} weight={5} />
+                <Polyline key={index} positions={route.path} color={route.color} weight={3} />
             )}
         </div>
     )

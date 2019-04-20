@@ -12,6 +12,8 @@ import ControlBtn from './components/BusRoute/BusRoute'
 //Socket.io
 import io from 'socket.io-client';
 
+import moment from "moment";
+
 //Set image path for Leaflet
 L.Icon.Default.imagePath =
   '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/';
@@ -35,7 +37,10 @@ function BusMarker({ idx, marker }) {
 
   return (
     <Marker key={idx} icon={icon} position={{ lat, lon }}>
-      <Tooltip> busNo: {marker.carno}  <br /> status: {marker.carstatus} <br /> speed: {marker.speed}  </Tooltip>
+      <Tooltip> Bus No: {marker.carno}  <br />
+        Status: {marker.carstatus} <br />
+        Speed: {marker.speed.toFixed(2)} km/hr <br />
+        Engine started: {moment(new Date(marker.acctime)).format("YYYY-MM-DD HH:mm")}</Tooltip>
     </Marker>
   );
 }
@@ -64,7 +69,6 @@ function App() {
     });
     return () => socket.close();
   }, [busIds, markers])
-  // console.log(busIds);
 
   return (
     <div>
