@@ -7855,6 +7855,11 @@ react-error-overlay@^5.1.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
 
+react-hook-geolocation@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-hook-geolocation/-/react-hook-geolocation-1.0.4.tgz#50c007d5471c5fa686fe16ea0d32ec95dce33670"
+  integrity sha512-8FAE4hC5cnMBW/F3Lzps6DkSWlyMMqYpggz7MQfV8n680tVAUzF8OmXQK6CtecukNbB9DkrYZ292htmeMfuPjQ==
+
 react-is@^16.7.0:
   version "16.8.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.2.tgz#09891d324cad1cb0c1f2d91f70a71a4bee34df0f"

@@ -13,6 +13,7 @@ import ControlBtn from './components/BusRoute/BusRoute'
 import io from 'socket.io-client';
 
 import moment from "moment";
+import useGeolocation from 'react-hook-geolocation'
 
 //Set image path for Leaflet
 L.Icon.Default.imagePath =
@@ -46,9 +47,18 @@ function BusMarker({ idx, marker }) {
 }
 
 function App() {
-  const [userLocation] = useState(position);
   const [busIds, setBusIds] = useState([]);
   const [markers, setMarkers] = useState([]);
+
+  const geolocation = useGeolocation();
+  const [userLocation, setUserLocation] = useState(position);
+
+  // Update user marker to current user location.
+  useEffect(() => {
+    if (geolocation.latitude !== undefined && geolocation.latitude !== null && geolocation.longitude !== undefined && geolocation.longitude !== null)
+      setUserLocation([geolocation.latitude, geolocation.longitude]);
+  }, [geolocation])
+
 
   useEffect(() => {
     const socket = io('https://service.mappico.co.th');
@@ -74,7 +84,7 @@ function App() {
     <div>
       <Map center={position} zoom={17}>
         <TileLayer
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution=''
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ControlBtn />
