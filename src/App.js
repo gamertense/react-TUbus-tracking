@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { get } from 'lodash'
 
 import './App.css';
@@ -49,6 +49,7 @@ function BusMarker({ idx, marker }) {
 function App() {
   const [busIds, setBusIds] = useState([]);
   const [markers, setMarkers] = useState([]);
+  const refmarker = useRef(null);
 
   const geolocation = useGeolocation();
   const [userLocation, setUserLocation] = useState(position);
@@ -80,6 +81,12 @@ function App() {
     return () => socket.close();
   }, [busIds, markers])
 
+  function updateUserLocation() {
+    setTimeout(function () { alert("Hello"); }, 1000);
+    // setTimeout(function () { alert("Hello"); }, 120000); // 2 minutes
+    setUserLocation([refmarker.current.leafletElement.getLatLng().lat, refmarker.current.leafletElement.getLatLng().lng])
+  }
+
   return (
     <div>
       <Map center={position} zoom={17}>
@@ -95,7 +102,11 @@ function App() {
             marker={marker}
           />
         ))}
-        <Marker position={userLocation}>
+        <Marker
+          ref={refmarker}
+          position={userLocation}
+          draggable
+          ondragend={updateUserLocation}>
           <Tooltip sticky>You are here</Tooltip>
         </Marker>
       </Map>
