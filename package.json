@@ -6,11 +6,13 @@
     "leaflet": "^1.4.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
+    "navi": "^0.12.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.2",
     "react-hook-geolocation": "^1.0.4",
     "react-leaflet": "^2.2.1",
     "react-leaflet-control": "^2.1.1",
+    "react-navi": "^0.12.6",
     "react-scripts": "2.1.1",
     "socket.io-client": "^2.2.0"
   },
