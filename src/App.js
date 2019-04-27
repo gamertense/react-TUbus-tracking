@@ -1,4 +1,4 @@
-import { mount, route, lazy } from 'navi'
+import { mount, route } from 'navi'
 import React, { Suspense } from 'react'
 import { Router, View } from 'react-navi'
 
@@ -7,10 +7,10 @@ import Map from './components/BusMap/BusMap'
 const routes =
   mount({
     '/': route(async req => {
-      const { origin, predest, dest } = req.params
+      const { origin, dest } = req.params
 
       return ({
-        title: "TU Bus Real-time Tracking",
+        title: "TU Real-time Bus Tracking",
         view: <Map origin={origin} dest={dest} />,
       })
     }),

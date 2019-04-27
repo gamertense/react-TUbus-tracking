@@ -31,8 +31,6 @@ function DestinationMarker({ destination }) {
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-    const lat = destination.lat;
-    const lon = destination.lon;
 
     return (
         <Marker icon={icon} position={destination}>
