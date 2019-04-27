@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "leaflet": "^1.4.0",
+    "leaflet-rotatedmarker": "^0.2.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "navi": "^0.12.6",
