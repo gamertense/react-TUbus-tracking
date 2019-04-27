@@ -5,6 +5,4 @@ Implemented tasks:
 - Update a particular bus location on map
 - Add Socket.io connection.
 - Update bus markers on map.
-
-Future work:
-- Waiting for 
+- Bus icon is rotated in the angle according to supplied vehicle direction.
